@@ -1,0 +1,73 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    title water
+    meta(name='robots', content='index, follow')
+    meta(name='description', content='water-js - a live coding interactive editor based on Bret Victor\'s Inventing on Principle talk ported to node.js by Kirk Bateman')
+    meta(name='keywords', content='live coding, interactive editor, d3, bret victor, inventing on principle, gabriel florit')
+    meta(name='author', content='Kirk Bateman, Gabriel Florit')
+    link(rel='stylesheet', type='text/css', href='http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css')
+    link(rel='stylesheet', type='text/css', href='../static/css/water.css')
+    link(rel='stylesheet', type='text/css', href='../static/slider/css/humanity/jquery-ui-slider.css')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Lato:400,700,900')
+  body
+    #page
+      #topControls
+        #saveControls
+          a.avatar(href='#', target='_blank')
+            img(src='')
+          a.new.button(href='#')
+            img(src='../static/img/doc-white.png', title='new')
+            | new
+          a.save.button(href='#')
+            img(src='../static/img/pen-white.png', title='save')
+            | save
+          a.gistUrl(href='#', target='_blank')
+          span.updateTimestamp saved
+        #instructions
+          | click a number and hold down the
+          span#sliderKey
+          | key
+        #message
+          span.emptyDocMessage cannot save an empty document
+          span.gistIntegrationMessage
+            | water will save your work on github.
+            a(href='/github-login') click here to continue
+            | .
+          span.newDocMessage
+            | clear out the code editor contents?
+            a.newYes(href='#') yes
+            a.newNo(href='#') no
+      #display
+        svg
+      #editor
+      div
+        a.increase.font-control(href='#') +
+        a.decrease.font-control(href='#') -
+      #slider
+      #aboutAndAttribution
+        a#about(href='http://gabrielflor.it/blog-water') what is this?
+        #attribution
+          p
+            a(href='https://github.com/kbateman/water-js') source code
+            | on github - you should follow me on twitter 
+            a(href='http://twitter.com/kbateman') Kirk Bateman (@kbateman)
+            | and 
+            a(href='http://twitter.com/gabrielflorit') Gabriel Florit (@gabrielflorit)
+
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='../static/js/jquery.hotkeys.js')
+    script(src='../static/slider/js/jquery.ui.slider.js')
+    script(src='../static/js/d3.v2.min.js')
+    script(src='../static/js/ace/ace.js')
+    script(src='../static/js/ace/theme-twilight.js')
+    script(src='../static/js/ace/mode-javascript.js')
+    script(src='../static/js/water.js')
+    script
+      // global variables here there and everywhere! ugh!
+      // clean it up!!!
+      var username = '#{vars.username}';
+      var avatar = '#{vars.avatar}';
+      var github_url = '#{vars.github_url}';
+      var create = '#{vars.create}';
